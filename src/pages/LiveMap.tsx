@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -82,6 +83,7 @@ const LiveMap = () => {
   const mapInstanceRef = useRef<MapInstance | null>(null);
   const markersRef = useRef<MarkerInstance[]>([]);
   const trafficLayerRef = useRef<TrafficLayerInstance | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (mapRef.current && window.google) {
@@ -144,13 +146,22 @@ const LiveMap = () => {
     }
   };
 
+  const handleTabChange = (value: string) => {
+    setSelectedTab(value);
+    if (value === "incidents") {
+      navigate("/incidents");
+    } else if (value === "signals") {
+      navigate("/traffic-signals");
+    }
+  };
+
   return (
     <PageLayout title="Live Traffic Map">
       <div className="mb-4">
         <Tabs 
           defaultValue="traffic" 
           value={selectedTab}
-          onValueChange={setSelectedTab}
+          onValueChange={handleTabChange}
         >
           <div className="flex items-center justify-between">
             <TabsList>
@@ -193,9 +204,9 @@ const LiveMap = () => {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <AlertTriangle className="h-16 w-16 text-amber-500 mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">Incident Map Coming Soon</h3>
+                    <h3 className="text-xl font-semibold mb-2">Redirecting to Incidents...</h3>
                     <p className="text-muted-foreground">
-                      Visual representation of accidents, roadblocks, and other incidents.
+                      Please wait while we take you to the incidents page.
                     </p>
                   </div>
                 </div>
@@ -209,9 +220,9 @@ const LiveMap = () => {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <Signal className="h-16 w-16 text-green-500 mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">Signal Control Map Coming Soon</h3>
+                    <h3 className="text-xl font-semibold mb-2">Redirecting to Traffic Signals...</h3>
                     <p className="text-muted-foreground">
-                      Interactive map to monitor and control traffic signals throughout the city.
+                      Please wait while we take you to the traffic signals page.
                     </p>
                   </div>
                 </div>
