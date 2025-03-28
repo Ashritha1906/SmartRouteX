@@ -19,6 +19,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				display: ['Poppins', 'system-ui', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -80,6 +84,12 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			boxShadow: {
+				'soft': '0 2px 15px rgba(0, 0, 0, 0.05)',
+				'glass': '0 8px 32px rgba(31, 38, 135, 0.07)',
+				'neu': '5px 5px 10px #d1d9e6, -5px -5px 10px #ffffff',
+				'neu-dark': '5px 5px 10px #1c1f27, -5px -5px 10px #242935',
+			},
 			keyframes: {
 				'accordion-down': {
 					from: {
@@ -100,13 +110,22 @@ export default {
 				'pulse-opacity': {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.6' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'pulse-slow': 'pulse-opacity 3s ease-in-out infinite'
-			}
+				'pulse-slow': 'pulse-opacity 3s ease-in-out infinite',
+				'float': 'float 3s ease-in-out infinite',
+			},
+			backdropFilter: {
+				'none': 'none',
+				'blur': 'blur(8px)',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

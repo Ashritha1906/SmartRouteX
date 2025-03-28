@@ -10,7 +10,9 @@ import {
   Home, 
   AlertTriangle, 
   Clock, 
-  TrafficCone
+  TrafficCone,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -80,19 +82,19 @@ const Sidebar = ({ isAdmin = false }: SidebarProps) => {
   return (
     <div
       className={cn(
-        "bg-slate-50 border-r border-slate-200 h-[calc(100vh-64px)] sticky top-16 transition-all duration-300 ease-in-out",
+        "bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 h-[calc(100vh-64px)] sticky top-16 transition-all duration-300 ease-in-out",
         isCollapsed ? "w-[70px]" : "w-[250px]"
       )}
     >
       <div className="py-4 flex flex-col h-full">
         <div className="px-3 py-2">
           <Button
-            variant="outline"
-            className="w-full justify-start"
+            variant="ghost"
+            className="w-full justify-center rounded-xl hover:bg-brand-primary/10 hover:text-brand-primary"
             onClick={() => setIsCollapsed(!isCollapsed)}
           >
-            {isCollapsed ? "→" : "←"}
-            {!isCollapsed && <span className="ml-2">Collapse</span>}
+            {isCollapsed ? <ChevronRight className="h-5 w-5" /> : <ChevronLeft className="h-5 w-5" />}
+            {!isCollapsed && <span className="ml-2 text-sm">Collapse</span>}
           </Button>
         </div>
 
@@ -100,18 +102,18 @@ const Sidebar = ({ isAdmin = false }: SidebarProps) => {
           <nav className="grid gap-1 px-2">
             {filteredNavItems.map((item, i) => (
               <div key={item.href}>
-                {item.divider && <div className="h-px bg-slate-200 my-2"></div>}
+                {item.divider && <div className="h-px bg-slate-200 dark:bg-slate-700 my-2"></div>}
                 <Link 
                   to={item.href}
                   className={cn(
-                    "flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-all hover:text-brand-primary hover:bg-brand-primary/10",
+                    "flex items-center gap-3 rounded-xl px-3 py-2 text-sm transition-all",
                     location.pathname === item.href 
                       ? "bg-brand-primary/10 text-brand-primary font-medium" 
-                      : "text-slate-600",
+                      : "text-slate-600 dark:text-slate-300 hover:text-brand-primary hover:bg-brand-primary/5 dark:hover:bg-brand-primary/10",
                     isCollapsed && "justify-center px-0"
                   )}
                 >
-                  <item.icon className={cn("h-5 w-5", isCollapsed && "h-6 w-6")} />
+                  <item.icon className={cn("h-5 w-5", isCollapsed && "h-5 w-5")} />
                   {!isCollapsed && <span>{item.name}</span>}
                 </Link>
               </div>
