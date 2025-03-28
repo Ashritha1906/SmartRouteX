@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { toast } from "@/components/ui/sonner";
+import { toast } from "@/hooks/use-sonner";
 import { getTrafficData, getTrafficIncidents, getTrafficSignals } from "@/lib/traffic-service";
 
 const DataSources = () => {

@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
-import { toast } from "@/components/ui/sonner";
+import { toast } from "@/hooks/use-sonner";
 import { getLocations } from "@/lib/traffic-service";
 
 // Form schema for general settings
