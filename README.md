@@ -48,9 +48,4 @@ An AI-powered web-based traffic management system designed to optimize real-time
 
 ---
 
-## ⚙️ Installation & Setup
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/yourusername/smart-traffic-tuticorin.git
-   cd smart-traffic-tuticorin
