@@ -1,1 +1,10 @@
 project_id = "cphappqwzaexecsajeeu"
+
+[functions.weather-data]
+verify_jwt = false
+
+[functions.traffic-simulation]
+verify_jwt = false
+
+[functions.routing-service]
+verify_jwt = false
