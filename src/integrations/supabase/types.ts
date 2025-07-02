@@ -9,7 +9,180 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      traffic_data: {
+        Row: {
+          average_speed: number | null
+          congestion_level: number
+          created_at: string
+          id: string
+          latitude: number
+          location_id: number
+          location_name: string
+          longitude: number
+          timestamp: string
+          traffic_status: string
+          vehicle_count: number | null
+        }
+        Insert: {
+          average_speed?: number | null
+          congestion_level: number
+          created_at?: string
+          id?: string
+          latitude: number
+          location_id: number
+          location_name: string
+          longitude: number
+          timestamp?: string
+          traffic_status: string
+          vehicle_count?: number | null
+        }
+        Update: {
+          average_speed?: number | null
+          congestion_level?: number
+          created_at?: string
+          id?: string
+          latitude?: number
+          location_id?: number
+          location_name?: string
+          longitude?: number
+          timestamp?: string
+          traffic_status?: string
+          vehicle_count?: number | null
+        }
+        Relationships: []
+      }
+      traffic_incidents: {
+        Row: {
+          created_at: string
+          description: string
+          estimated_end_time: string | null
+          id: string
+          incident_type: string
+          latitude: number
+          location_id: number
+          longitude: number
+          resolved: boolean | null
+          severity: string
+          start_time: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          estimated_end_time?: string | null
+          id?: string
+          incident_type: string
+          latitude: number
+          location_id: number
+          longitude: number
+          resolved?: boolean | null
+          severity: string
+          start_time?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          estimated_end_time?: string | null
+          id?: string
+          incident_type?: string
+          latitude?: number
+          location_id?: number
+          longitude?: number
+          resolved?: boolean | null
+          severity?: string
+          start_time?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      traffic_signals: {
+        Row: {
+          created_at: string
+          current_phase: string
+          cycle_time: number
+          id: string
+          is_optimized: boolean | null
+          last_optimized: string | null
+          latitude: number
+          location_id: number
+          location_name: string
+          longitude: number
+          next_phase_in: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          current_phase: string
+          cycle_time?: number
+          id?: string
+          is_optimized?: boolean | null
+          last_optimized?: string | null
+          latitude: number
+          location_id: number
+          location_name: string
+          longitude: number
+          next_phase_in?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          current_phase?: string
+          cycle_time?: number
+          id?: string
+          is_optimized?: boolean | null
+          last_optimized?: string | null
+          latitude?: number
+          location_id?: number
+          location_name?: string
+          longitude?: number
+          next_phase_in?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      weather_data: {
+        Row: {
+          created_at: string
+          humidity: number | null
+          icon: string | null
+          id: string
+          location: string
+          temperature: number | null
+          timestamp: string
+          visibility: number | null
+          weather_condition: string | null
+          weather_description: string | null
+          wind_speed: number | null
+        }
+        Insert: {
+          created_at?: string
+          humidity?: number | null
+          icon?: string | null
+          id?: string
+          location?: string
+          temperature?: number | null
+          timestamp?: string
+          visibility?: number | null
+          weather_condition?: string | null
+          weather_description?: string | null
+          wind_speed?: number | null
+        }
+        Update: {
+          created_at?: string
+          humidity?: number | null
+          icon?: string | null
+          id?: string
+          location?: string
+          temperature?: number | null
+          timestamp?: string
+          visibility?: number | null
+          weather_condition?: string | null
+          weather_description?: string | null
+          wind_speed?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
